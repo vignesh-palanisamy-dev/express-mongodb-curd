@@ -14,8 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// or use app.use(cors())
 const allowedOrigins = ["http://localhost:3000", "http://localhost:8080"];
-
+// avoid fail to fetch error and cors erros (cross origin resource sharing)
+// cros error -> you can't call fetch(https://yahoo.com) api from google.com
 app.use(
   cors({
     origin: function (origin, callback) {
